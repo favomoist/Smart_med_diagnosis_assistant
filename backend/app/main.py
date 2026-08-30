@@ -1,44 +1,52 @@
-# Updated backend skeleton for GitHub Flow
-
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+from app.core.config import settings
+from app.core.database import engine, Base, SessionLocal
+from app.engine.triage_engine import init_knowledge_base
+from app.api.v1.api import api_router
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup: initialize database tables and seed knowledge base
+    Base.metadata.create_all(bind=engine)
+    db = SessionLocal()
+    try:
+        init_knowledge_base(db)
+    finally:
+        db.close()
+    yield
+    # Shutdown: cleanups if needed
+
 
 app = FastAPI(
-    title="Smart Medical Diagnosis Assistant API",
-    description="Symptom intake, triage, and possible-condition guidance API.",
-    version="0.1.0",
+    title=settings.PROJECT_NAME,
+    description="Intelligent symptom intake, red-flag emergency screening, and clinical triage decision-support API.",
+    version=settings.VERSION,
+    lifespan=lifespan,
+    docs_url="/docs",
+    redoc_url="/redoc",
 )
 
+# CORS Configuration
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.BACKEND_CORS_ORIGINS,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-class SymptomCheckRequest(BaseModel):
-    symptoms: list[str]
-    age: int | None = None
-    sex: str | None = None
-
-
-class SymptomCheckResponse(BaseModel):
-    urgency: str
-    possible_conditions: list[str]
-    disclaimer: str = (
-        "This is not a medical diagnosis. Please consult a licensed "
-        "healthcare provider for professional medical advice."
-    )
-
-
-@app.get("/health")
+# Health Check
+@app.get("/health", tags=["System Health"])
 def health_check():
-    return {"status": "ok"}
+    return {
+        "status": "ok",
+        "service": settings.PROJECT_NAME,
+        "version": settings.VERSION
+    }
 
 
-@app.post("/api/v1/symptom-check", response_model=SymptomCheckResponse)
-def symptom_check(payload: SymptomCheckRequest):
-    # Placeholder rule-based logic — to be replaced with the real
-    # triage/diagnosis engine.
-    urgency = "self-care"
-    if "chest pain" in [s.lower() for s in payload.symptoms]:
-        urgency = "emergency"
-
-    return SymptomCheckResponse(
-        urgency=urgency,
-        possible_conditions=["Placeholder condition A", "Placeholder condition B"],
-    )
+# Include API v1 routes
+app.include_router(api_router, prefix=settings.API_V1_STR)
