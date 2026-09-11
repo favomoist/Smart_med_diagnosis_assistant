@@ -1,0 +1,297 @@
+<mxfile host="app.diagrams.net" agent="Antigravity" version="26.0">
+  <diagram name="SMDA Architecture" id="smda-arch-v1">
+      <mxGraphModel dx="2200" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ================================================================ -->
+        <!-- TITLE                                                            -->
+        <!-- ================================================================ -->
+        <mxCell id="title" value="Smart Med Diagnosis Assistant — System Architecture" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fontColor=#1A1A2E;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="200" y="10" width="900" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- CLIENT TIER (top)                                                -->
+        <!-- ================================================================ -->
+        <mxCell id="client-group" value="Client Tier" style="shape=mxgraph.archimate3.application;appType=comp;rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#43A047;fontStyle=1;fontSize=13;verticalAlign=top;align=center;spacingTop=5;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="140" y="70" width="1020" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Web Browser -->
+        <mxCell id="web-client" value="&lt;b&gt;Web Browser&lt;/b&gt;&lt;br&gt;(Desktop / Mobile)&lt;br&gt;&lt;font style=&quot;font-size:10px;color:#666&quot;&gt;localhost:8443&lt;/font&gt;" style="shape=mxgraph.cisco.computers_and_peripherals.web_browser;sketch=0;html=1;fillColor=#FFFFFF;strokeColor=#43A047;fontSize=11;fontFamily=Inter;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="100" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Android APK -->
+        <mxCell id="android-client" value="&lt;b&gt;Android APK&lt;/b&gt;&lt;br&gt;(Capacitor 8)&lt;br&gt;&lt;font style=&quot;font-size:10px;color:#666&quot;&gt;com.smda.app&lt;/font&gt;" style="shape=mxgraph.android.phone2;sketch=0;html=1;fillColor=#FFFFFF;strokeColor=#43A047;fontSize=11;fontFamily=Inter;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="100" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- API Docs -->
+        <mxCell id="api-docs" value="&lt;b&gt;Swagger / ReDoc&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;color:#666&quot;&gt;/docs  •  /redoc&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#43A047;fontSize=11;fontFamily=Inter;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="110" width="140" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- FRONTEND SPA TIER                                                -->
+        <!-- ================================================================ -->
+        <mxCell id="fe-group" value="Frontend — React 19 + Vite 8 + TypeScript + Tailwind CSS 4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C3;fontStyle=1;fontSize=13;verticalAlign=top;align=center;spacingTop=5;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="140" y="260" width="1020" height="230" as="geometry" />
+        </mxCell>
+
+        <!-- Layouts sub-group -->
+        <mxCell id="fe-layouts" value="Layouts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C3;fontStyle=1;fontSize=11;verticalAlign=top;align=center;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="295" width="310" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="layout-root" value="RootLayout" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="170" y="320" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="layout-patient" value="PatientLayout" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="265" y="320" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="layout-admin" value="AdminLayout" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="365" y="320" width="90" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Pages sub-group -->
+        <mxCell id="fe-pages" value="Pages (React Router 8)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#1565C3;fontStyle=1;fontSize=11;verticalAlign=top;align=center;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="380" width="980" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="pg-login" value="/ Login" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="170" y="410" width="95" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pg-symptom" value="/patient&#10;SymptomIntake" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="280" y="410" width="105" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pg-triage" value="/patient/triage&#10;TriageResult" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="400" y="410" width="105" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pg-conditions" value="/patient/conditions&#10;PossibleConditions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="520" y="410" width="125" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pg-history" value="/patient/history&#10;History" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="660" y="410" width="105" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pg-summary" value="/patient/summary&#10;ClinicianSummary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="780" y="410" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pg-admin" value="/admin&#10;AdminPanel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="920" y="410" width="95" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pg-448" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="170" y="448" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- API client lib -->
+        <mxCell id="fe-api-lib" value="&lt;b&gt;src/lib/api.ts&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;color:#666&quot;&gt;fetch() + JWT Bearer token&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#1565C3;fontSize=11;fontFamily=Inter;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="295" width="220" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Libs -->
+        <mxCell id="fe-libs" value="&lt;font style=&quot;font-size:10px&quot;&gt;Recharts • Lucide • Radix UI • CVA&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#1565C3;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="800" y="295" width="220" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- ARROWS — Client → Frontend                                      -->
+        <!-- ================================================================ -->
+        <mxCell id="arr-web-fe" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#43A047;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;" edge="1" source="web-client" target="fe-group" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr-android-fe" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#43A047;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;" edge="1" source="android-client" target="fe-group" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- BACKEND TIER                                                     -->
+        <!-- ================================================================ -->
+        <mxCell id="be-group" value="Backend — FastAPI 0.141 + Uvicorn (Python)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=13;verticalAlign=top;align=center;spacingTop=5;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="140" y="540" width="1020" height="260" as="geometry" />
+        </mxCell>
+
+        <!-- API Gateway label -->
+        <mxCell id="be-gateway" value="&lt;b&gt;API Gateway&lt;/b&gt;   /api/v1/*   •   CORS   •   JWT Auth" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontSize=11;fontFamily=Inter;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="575" width="620" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Route modules -->
+        <mxCell id="be-routes" value="API Route Modules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontStyle=1;fontSize=11;verticalAlign=top;align=center;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="625" width="980" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rt-auth" value="auth.py&#10;/auth/login&#10;/auth/register" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=9;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="170" y="650" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="rt-profiles" value="profiles.py&#10;/profiles/*" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=9;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="310" y="650" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="rt-triage" value="triage.py&#10;/triage/check&#10;/triage/history" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=9;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="450" y="650" width="130" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="rt-knowledge" value="knowledge.py&#10;/knowledge/conditions&#10;/knowledge/symptoms" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=9;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="600" y="650" width="150" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="rt-share" value="share.py&#10;/share/create&#10;/share/{token}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=9;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="770" y="650" width="130" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="rt-health" value="GET /health" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=9;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="920" y="650" width="90" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Engine -->
+        <mxCell id="be-engine" value="Engine Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontStyle=1;fontSize=11;verticalAlign=top;align=center;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="710" width="500" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="eng-triage" value="&lt;b&gt;triage_engine.py&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#666&quot;&gt;Symptom matching • Red-flag screening&lt;br&gt;Urgency scoring • Confidence calculation&lt;br&gt;init_knowledge_base() • seed_default_users()&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=10;fontFamily=Inter;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="730" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eng-seed" value="&lt;b&gt;seed_data.py&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#666&quot;&gt;50+ symptoms • 30+ conditions&lt;br&gt;Symptom↔Condition mappings&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=10;fontFamily=Inter;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="730" width="215" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Core / Security -->
+        <mxCell id="be-core" value="Core Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#E65100;fontStyle=1;fontSize=11;verticalAlign=top;align=center;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="710" width="460" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="core-config" value="&lt;b&gt;config.py&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#666&quot;&gt;Pydantic Settings&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="690" y="740" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="core-db" value="&lt;b&gt;database.py&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#666&quot;&gt;SQLAlchemy engine&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="830" y="740" width="130" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="core-sec" value="&lt;b&gt;security.py&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#666&quot;&gt;bcrypt + JWT&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E65100;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="980" y="740" width="120" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- ARROW — Frontend → Backend (HTTP/JSON)                          -->
+        <!-- ================================================================ -->
+        <mxCell id="arr-fe-be" value="HTTP / JSON" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E65100;strokeWidth=2;fontSize=10;fontFamily=Inter;fontColor=#E65100;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;" edge="1" source="fe-api-lib" target="be-group" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- DATA TIER                                                        -->
+        <!-- ================================================================ -->
+        <mxCell id="data-group" value="Data Tier" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;fontStyle=1;fontSize=13;verticalAlign=top;align=center;spacingTop=5;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="140" y="850" width="1020" height="185" as="geometry" />
+        </mxCell>
+
+        <!-- SQLAlchemy Models -->
+        <mxCell id="models-box" value="SQLAlchemy ORM Models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontStyle=1;fontSize=11;verticalAlign=top;align=center;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="885" width="580" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="mdl-user" value="&lt;b&gt;User&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#666&quot;&gt;id • email • hashed_password&lt;br&gt;role (patient | clinician | admin)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B1FA2;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="170" y="910" width="170" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="mdl-triage" value="&lt;b&gt;TriageSession&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#666&quot;&gt;symptoms • urgency • conditions&lt;br&gt;red_flags • SharedSummary&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B1FA2;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="360" y="910" width="180" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="mdl-kb" value="&lt;b&gt;Symptom / Condition&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px;color:#666&quot;&gt;SymptomConditionLink&lt;br&gt;(many-to-many)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B1FA2;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="560" y="910" width="160" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Databases -->
+        <mxCell id="db-sqlite" value="&lt;b&gt;SQLite&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;color:#666&quot;&gt;smda.db (dev)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#CE93D8;strokeColor=#7B1FA2;fontSize=11;fontFamily=Inter;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="885" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="db-postgres" value="&lt;b&gt;PostgreSQL 16&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;color:#666&quot;&gt;Docker (prod)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#CE93D8;strokeColor=#7B1FA2;fontSize=11;fontFamily=Inter;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="885" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="db-redis" value="&lt;b&gt;Redis 7&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;color:#666&quot;&gt;Cache (Docker)&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#CE93D8;strokeColor=#7B1FA2;fontSize=11;fontFamily=Inter;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="885" width="80" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Pydantic Schemas -->
+        <mxCell id="schemas-label" value="&lt;font style=&quot;font-size:10px;color:#666&quot;&gt;Pydantic Schemas: auth.py • triage.py • knowledge.py • profile.py • share.py&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=10;fontFamily=Inter;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="960" width="580" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow Backend → Data -->
+        <mxCell id="arr-be-data" value="SQLAlchemy ORM" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#7B1FA2;strokeWidth=2;fontSize=10;fontFamily=Inter;fontColor=#7B1FA2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;" edge="1" source="be-group" target="data-group" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- CI / CD & DEVOPS (right side)                                    -->
+        <!-- ================================================================ -->
+        <mxCell id="cicd-group" value="CI / CD &amp; DevOps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontStyle=1;fontSize=13;verticalAlign=top;align=center;spacingTop=5;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="70" width="180" height="460" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ci-gh" value="&lt;b&gt;GitHub Actions&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;color:#666&quot;&gt;.github/workflows/&lt;br&gt;build-apk.yml&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F9A825;fontSize=11;fontFamily=Inter;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1028" y="110" width="145" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ci-step1" value="1. Checkout (LFS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="180" width="130" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ci-step2" value="2. Node 22 + Java 17 + Android SDK" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="215" width="130" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ci-step3" value="3. npm install → build" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="250" width="130" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ci-step4" value="4. npx cap sync android" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="285" width="130" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ci-step5" value="5. gradlew assembleDebug" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="320" width="130" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ci-step6" value="6. Upload APK Artifact" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=10;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="355" width="130" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ci-docker" value="&lt;b&gt;Docker Compose&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px;color:#666&quot;&gt;4 services&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F9A825;fontSize=11;fontFamily=Inter;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1028" y="400" width="145" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- CI arrows -->
+        <mxCell id="arr-ci1-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#F9A825;strokeWidth=1;" edge="1" source="ci-step1" target="ci-step2" parent="1" />
+        <mxCell id="arr-ci2-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#F9A825;strokeWidth=1;" edge="1" source="ci-step2" target="ci-step3" parent="1" />
+        <mxCell id="arr-ci3-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#F9A825;strokeWidth=1;" edge="1" source="ci-step3" target="ci-step4" parent="1" />
+        <mxCell id="arr-ci4-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#F9A825;strokeWidth=1;" edge="1" source="ci-step4" target="ci-step5" parent="1" />
+        <mxCell id="arr-ci5-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#F9A825;strokeWidth=1;" edge="1" source="ci-step5" target="ci-step6" parent="1" />
+
+        <!-- ================================================================ -->
+        <!-- LEGEND (bottom-right)                                            -->
+        <!-- ================================================================ -->
+        <mxCell id="legend" value="&lt;b&gt;Legend&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#9E9E9E;fontStyle=1;fontSize=12;verticalAlign=top;align=center;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="560" width="170" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#43A047;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="590" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-1t" value="Client Tier" style="text;html=1;fontSize=10;fontFamily=Inter;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="588" width="115" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C3;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="615" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-2t" value="Frontend" style="text;html=1;fontSize=10;fontFamily=Inter;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="613" width="115" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="640" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-3t" value="Backend" style="text;html=1;fontSize=10;fontFamily=Inter;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="638" width="115" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="665" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-4t" value="Data" style="text;html=1;fontSize=10;fontFamily=Inter;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="663" width="115" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="690" width="20" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-5t" value="DevOps" style="text;html=1;fontSize=10;fontFamily=Inter;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="688" width="115" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

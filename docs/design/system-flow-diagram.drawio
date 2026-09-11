@@ -1,0 +1,87 @@
+<mxfile host="app.diagrams.net" agent="Antigravity" version="26.0">
+  <diagram name="SMDA System Flow" id="smda-flow-v1">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="Smart Medical Diagnosis Assistant - System Flow" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fontColor=#1A1A2E;fontFamily=Inter;" vertex="1" parent="1">
+          <mxGeometry x="180" y="20" width="760" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="user" value="Patient / Caregiver / Clinician" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#43A047;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="90" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="login" value="Login / Authentication" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C3;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="170" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="intake" value="Symptom Intake Form" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C3;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="250" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="submit" value="Enter symptoms, age, severity, duration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C3;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="330" width="280" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="api" value="Frontend Sends Request to FastAPI API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="430" width="280" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="engine" value="Triage Engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontStyle=1;fontSize=13;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="410" width="220" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="redflag" value="1. Red-Flag Screening" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C2185B;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="520" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="match" value="2. Symptom Matching" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C2185B;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="520" width="170" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="score" value="3. Condition Scoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#C2185B;fontSize=11;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="590" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="result" value="Urgency Result + Care Advice" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="680" width="260" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="possible" value="Possible Conditions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="780" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="history" value="History / Tracking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="780" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="summary" value="Clinician Summary / Share" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#7B1FA2;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="860" width="260" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="db" value="Database / Knowledge Base" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=16;fillColor=#F3E5F5;strokeColor=#7B1FA2;fontStyle=1;fontSize=12;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="660" width="200" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="user" target="login" parent="1" />
+        <mxCell id="arrow2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="login" target="intake" parent="1" />
+        <mxCell id="arrow3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="intake" target="submit" parent="1" />
+        <mxCell id="arrow4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="submit" target="api" parent="1" />
+        <mxCell id="arrow5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="api" target="engine" parent="1" />
+        <mxCell id="arrow6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="engine" target="redflag" parent="1" />
+        <mxCell id="arrow7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="engine" target="match" parent="1" />
+        <mxCell id="arrow8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="redflag" target="score" parent="1" />
+        <mxCell id="arrow9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="match" target="score" parent="1" />
+        <mxCell id="arrow10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="score" target="result" parent="1" />
+        <mxCell id="arrow11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="result" target="possible" parent="1" />
+        <mxCell id="arrow12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="result" target="history" parent="1" />
+        <mxCell id="arrow13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="history" target="summary" parent="1" />
+        <mxCell id="arrow14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="engine" target="db" parent="1" />
+        <mxCell id="arrow15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A1A2E;strokeWidth=2;" edge="1" source="db" target="engine" parent="1" />
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
