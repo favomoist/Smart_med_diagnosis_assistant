@@ -1,0 +1,10 @@
+{
+  "description": "This symptom-checker and triage tool helps patients and clinicians assess health concerns, offering urgency guidance and possible conditions for informed care decisions.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

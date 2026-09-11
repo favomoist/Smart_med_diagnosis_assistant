@@ -82,6 +82,41 @@ def init_knowledge_base(db: Session) -> None:
     db.commit()
 
 
+def seed_default_users(db: Session) -> None:
+    """Seed initial demo accounts (patient, admin, clinician) if not present."""
+    from app.models.user import User, Profile
+    from app.core.security import get_password_hash
+
+    defaults = [
+        {"email": "patient@example.com", "password": "patient123", "full_name": "John Doe", "role": "patient", "age": 34, "sex": "male"},
+        {"email": "admin@example.com", "password": "admin123", "full_name": "Admin User", "role": "admin", "age": None, "sex": None},
+        {"email": "clinician@example.com", "password": "clinician123", "full_name": "Dr. Arjun", "role": "clinician", "age": 40, "sex": "male"},
+    ]
+    for d in defaults:
+        if not db.query(User).filter(User.email == d["email"]).first():
+            user = User(
+                email=d["email"],
+                hashed_password=get_password_hash(d["password"]),
+                full_name=d["full_name"],
+                role=d["role"],
+                is_active=True
+            )
+            db.add(user)
+            db.commit()
+            db.refresh(user)
+
+            profile = Profile(
+                user_id=user.id,
+                name=user.full_name,
+                relationship="self",
+                age=d["age"],
+                sex=d["sex"]
+            )
+            db.add(profile)
+            db.commit()
+
+
+
 def check_red_flags(raw_symptoms: List[str], db: Session) -> Tuple[bool, List[str]]:
     """Screen for critical emergency red flags with 100% target recall."""
     triggered_warnings = []

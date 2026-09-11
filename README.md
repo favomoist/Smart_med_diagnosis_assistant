@@ -5,7 +5,7 @@
 ### Project Name & Overview
 **Smart Medical Diagnosis Assistant (SMDA)** is a cross-platform application that helps users understand possible causes of their symptoms, get triage guidance (e.g., self-care vs. see a doctor vs. emergency), and share a structured summary with a clinician. It is **not** a diagnostic replacement for a licensed physician — it is a decision-support and information tool.
 
-- **Frontend:** Flutter (Android, iOS, Web from one codebase)
+- **Frontend:** React 19 (TypeScript, Vite, Tailwind CSS)
 - **Backend:** Python (FastAPI)
 - **Diagnosis Logic:** Starts as a rule-based/symptom-checker engine, with an extensible interface to plug in an ML model or an external LLM API later
 - **Data Store:** PostgreSQL (structured data) + Redis (caching/session)
@@ -86,7 +86,7 @@ Example branches used in this project:
 
 ### Prerequisites
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
-- [Flutter SDK](https://docs.flutter.dev/get-started/install) installed (for frontend development)
+- [Node.js](https://nodejs.org/) (v20+ recommended) and [pnpm](https://pnpm.io/) or [npm](https://www.npmjs.com/)
 - Git
 
 ### Run the backend + database with Docker
@@ -107,15 +107,15 @@ To stop:
 docker compose down
 ```
 
-### Run the frontend (Flutter)
+### Run the frontend (React + Vite)
 
 ```bash
 cd frontend
-flutter pub get
-flutter run -d chrome   # or -d <device_id> for mobile/emulator
+pnpm install    # or npm install
+pnpm dev        # or npm run dev
 ```
 
-Point the Flutter app's API base URL to `http://localhost:8000`.
+The web application will be available at `http://localhost:5173`. Point API requests to the backend at `http://localhost:8000`.
 
 ---
 
@@ -125,7 +125,8 @@ Point the Flutter app's API base URL to `http://localhost:8000`.
 |---|---|
 | **Docker Desktop** | Runs backend, database, and cache in containers |
 | **VS Code** (or Android Studio) | Primary IDE, with Python and Flutter extensions |
-| **Flutter SDK + DevTools** | Frontend development, hot reload, widget inspector |
+| **Node.js + pnpm / npm** | Frontend runtime & package management |
+| **Vite & React DevTools** | Frontend dev server, fast HMR, component inspection |
 | **Postman / FastAPI Swagger UI** (`/docs`) | API testing |
 | **pgAdmin / DBeaver** (optional) | Inspecting the PostgreSQL database |
 | **Git + GitHub** | Version control, following GitHub Flow |
@@ -148,7 +149,7 @@ smart-med-diagnosis-assistant/
 │   └── app/
 │       ├── __init__.py
 │       └── main.py
-├── frontend/               # Flutter app
+├── frontend/               # React + Vite web app (SmartyMed)
 │   └── README.md
 └── docs/
     ├── user-stories.md     # 25 user stories + MoSCoW

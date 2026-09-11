@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.core.database import engine, Base, SessionLocal
-from app.engine.triage_engine import init_knowledge_base
+from app.engine.triage_engine import init_knowledge_base, seed_default_users
 from app.api.v1.api import api_router
 
 
@@ -14,6 +14,7 @@ async def lifespan(app: FastAPI):
     db = SessionLocal()
     try:
         init_knowledge_base(db)
+        seed_default_users(db)
     finally:
         db.close()
     yield

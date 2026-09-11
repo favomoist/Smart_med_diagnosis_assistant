@@ -9,6 +9,12 @@ env/
 .pytest_cache/
 .mypy_cache/
 
+# --- Frontend (Web & React) ---
+frontend/node_modules/
+frontend/dist/
+node_modules/
+dist/
+
 # --- Flutter / Dart ---
 frontend/.dart_tool/
 frontend/.flutter-plugins
